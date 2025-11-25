@@ -1,0 +1,18 @@
+# Virtual environments
+.venv/
+venv/
+
+# Editor directories
+.vscode/
+
+# Python cache/build
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS files
+.DS_Store
+
+# Local env files
+.env
+env/
