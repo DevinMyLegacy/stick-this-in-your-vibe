@@ -1,0 +1,26 @@
+{
+  "core": {
+    "purpose": "Fix LLM code failures, ensure secure/readable outputs for apps.",
+    "rules": [
+      {"id": "sec1", "desc": "OWASP validation: Sanitize inputs, JWT auth."},
+      {"id": "perf1", "desc": "Slow is smooth: Prioritize accuracy over speed."},
+      {"id": "ux1", "desc": "Readable code: Comments, no cleverness."}
+    ]
+  },
+  "flows": {
+    "linear": ["Input task", "Generate code", "Validate", "Output"],
+    "full_scope": {"constants": ["Venv always", "Loop warnings", "Break reminders"]},
+    "workflow_ir": {
+      "steps": [
+        {"id": "init", "desc": "Project init: Git, .gitignore", "placeholder": "{features: \"task mgmt\"}"},
+        {"id": "dev", "desc": "Code & test iteratively", "placeholder": "{lang: \"python\", tests: [\"unit\", \"integration\"]}"},
+        {"id": "cicd", "desc": "Build, test, scan, deploy", "criteria": ["coverage>80%", "OWASP scan pass", "RBAC auth"], "placeholder": "{platform: \"Vercel\", script: \"YAML\"}"},
+        {"id": "deploy", "desc": "Platform instructions + automation", "placeholder": "{automation: \"GitHub Actions prompt\"}"}
+      ]
+    }
+  },
+  "integrations": {
+    "ollama": "ollama run <model> --system \"$(cat prompt.txt)\"",
+    "online": "Paste into custom settings (Grok/Claude)."
+  }
+}
